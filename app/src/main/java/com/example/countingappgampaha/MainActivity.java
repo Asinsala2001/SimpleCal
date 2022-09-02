@@ -23,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
          lblAns = findViewById(R.id.lblAns);
 
     }
-    int value1 = 0;
-    int value2 = 0;
-    int answer = 0;
 
-    public void Addition(View v){
 
+    public void Calculate(View v){
+
+          String tag = v.getTag().toString();
+          lblAns.setText(tag);
 
        String Value1 = txtValue1.getText().toString();
        String Value2 = txtValue2.getText().toString();
@@ -36,68 +36,35 @@ public class MainActivity extends AppCompatActivity {
        Double v1 = Double.parseDouble(Value1);
        Double v2 = Double.parseDouble(Value2);
 
-       Double answer = (v1 + v2);
+       double answer = 0;
+//       if (tag.equals("Sum")) {
+//           answer = (v1 + v2);
+//       }
+//
+//        if (tag.equals("sub")) {
+//            answer = (v1 - v2);
+//        }
+//
+//        if (tag.equals("Mul")) {
+//            answer = (v1 * v2);
+//        }
+//
+//        if (tag.equals("Div")) {
+//            answer = (v1 / v2);
+//        }
 
+        switch (tag){
+            case "Sum": answer = v1+v2; break;
+            case "sub": answer = v1-v2; break;
+            case "Mul": answer = v1*v2; break;
+            case "Div": answer = v1/v2; break;
 
+        }
        lblAns.setText("" + answer);
+
+
     }
 
-    public void Substract (View v){
 
 
-
-        String Value1 = txtValue1.getText().toString();
-        String Value2 = txtValue2.getText().toString();
-
-        Double v1 = Double.parseDouble(Value1);
-        Double v2 = Double.parseDouble(Value2);
-
-    Double answer = (v1 - v2);
-
-
-       lblAns.setText("" + answer);
-}
-
-    public void Multiplication(View v){
-
-
-
-        String Value1 = txtValue1.getText().toString();
-        String Value2 = txtValue2.getText().toString();
-
-        Double v1 = Double.parseDouble(Value1);
-        Double v2 = Double.parseDouble(Value2);
-
-        Double answer = (v1 * v2);
-
-
-        lblAns.setText("" + answer);
-    }
-
-    public void Division(View v){
-
-
-
-        String Value1 = txtValue1.getText().toString();
-        String Value2 = txtValue2.getText().toString();
-
-        Double v1 = Double.parseDouble(Value1);
-        Double v2 = Double.parseDouble(Value2);
-
-        Double answer = (v1 / v2);
-
-
-        lblAns.setText("" + answer);
-    }
-
-    public void Clear(View v){
-
-        answer = 0;
-
-
-        lblAns.setText("" + answer);
-        txtValue1.setText("");
-        txtValue2.setText("");
-
-    }
 }
